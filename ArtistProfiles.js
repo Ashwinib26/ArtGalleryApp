@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   header: {
-    backgroundColor: '#4c669f', // Background color for header
+    backgroundColor: '#4c669f', 
     padding: 15,
     borderRadius: 10,
     marginBottom: 20,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
-    elevation: 3, // Adds shadow for Android
+    elevation: 3, 
   },
   profilePic: {
     width: 120,

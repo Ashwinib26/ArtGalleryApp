@@ -3,49 +3,43 @@ import { StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native
 import { LinearGradient } from 'expo-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/MaterialIcons'; // Import the icon library
-
-// Import Screens
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import VirtualExhibitionsScreen from './VirtualExhibitions';
 import ArtistProfilesScreen from './ArtistProfiles';
 
 function HomeScreen({ navigation }) {
-  // Create animated values for opacity and scale
-  const fadeIn = useRef(new Animated.Value(0)).current; // fadeIn opacity for the animation
-  const scale = useRef(new Animated.Value(0.5)).current; // scale animation
+  const fadeIn = useRef(new Animated.Value(0)).current; 
+  const scale = useRef(new Animated.Value(0.5)).current; 
 
   useEffect(() => {
-    // Trigger the animation on component mount
     Animated.timing(fadeIn, {
-      toValue: 1, // Full opacity
-      duration: 2000, // 2 seconds for the fade-in effect
+      toValue: 1, 
+      duration: 2000, 
       useNativeDriver: true,
     }).start();
 
     Animated.timing(scale, {
-      toValue: 1, // Scale to normal size
-      duration: 2000, // 2 seconds for the scale effect
+      toValue: 1, 
+      duration: 2000, 
       useNativeDriver: true,
     }).start();
   }, []);
 
   return (
     <LinearGradient
-      colors={['#4c669f', '#3b5998', '#192f6a']} // Define gradient colors
+      colors={['#4c669f', '#3b5998', '#192f6a']} 
       style={styles.backgroundImage}
     >
       <View style={styles.overlay}>
-        {/* Painting Brush Icon above the app name */}
         <Animated.View style={[styles.iconContainer, { opacity: fadeIn, transform: [{ scale }] }]}>
           <Icon name="brush" size={50} color="#fff" />
         </Animated.View>
 
-        {/* Animated App Name */}
         <Animated.Text
           style={[
             styles.appName,
             {
-              opacity: fadeIn, // Add fade-in animation to 'ArtScape'
+              opacity: fadeIn, 
               transform: [{ scale }],
             },
           ]}
@@ -53,7 +47,6 @@ function HomeScreen({ navigation }) {
           ArtScape
         </Animated.Text>
 
-        {/* Additional Text */}
         <Animated.Text
           style={[styles.punchLine, { opacity: fadeIn, transform: [{ scale }] }]}
         >
@@ -61,7 +54,6 @@ function HomeScreen({ navigation }) {
         </Animated.Text>
         <Text style={styles.subLine}>Immerse yourself in breathtaking masterpieces</Text>
 
-        {/* Navigation Buttons */}
         <View style={styles.navigationButtons}>
           <TouchableOpacity
             style={styles.navButton}
@@ -109,7 +101,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   iconContainer: {
-    marginBottom: 20, // Add space between the icon and the app name
+    marginBottom: 20, 
   },
   punchLine: {
     fontSize: 28,
@@ -127,11 +119,11 @@ const styles = StyleSheet.create({
   appName: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#ff6347', // Highlighting the name with a distinct color (light red/orange)
+    color: '#ff6347',
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 60,
-    fontFamily: 'sans-serif-condensed', // You can also use a custom font here
+    fontFamily: 'sans-serif-condensed', 
   },
   navigationButtons: {
     flexDirection: 'row',
